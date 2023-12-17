@@ -12,9 +12,9 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
-    var txtSelectedDate : TextView? = null
-    var txtMinutes : TextView? = null
-    var txtHours : TextView? = null
+    private var txtSelectedDate : TextView? = null
+    private var txtMinutes : TextView? = null
+    private var txtHours : TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun clickSelectDate(){
+    private fun clickSelectDate(){
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val month = calendar.get(Calendar.MONTH)
@@ -43,11 +43,15 @@ class MainActivity : AppCompatActivity() {
             val theDate = sdf.parse(selectedDate)
             theDate?.let {
                 val selectedDateInMinutes = theDate.time / 60000
+                val selectedDateInHours = theDate.time / 3600000
                 val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
                 currentDate?.let {
                     val currentDateInMinutes = currentDate.time / 60000
+                    val currentDateinHours = currentDate.time / 3600000
                     val differentDateInMinutes = currentDateInMinutes - selectedDateInMinutes
+                    val differentDateInHours = currentDateinHours - selectedDateInHours
                     txtMinutes?.text = differentDateInMinutes.toString()
+                    txtHours?.text = differentDateInHours.toString()
                 }
             }
         },year,month,day)

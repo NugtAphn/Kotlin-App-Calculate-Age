@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Kolin App Calculate Age</string>
+    <string name="title">Tính toán tuổi bằng phút/giờ</string>
+    <string name="btnText">Chọn ngày sinh</string>
+    <string name="date">Ngày sinh đã chọn:</string>
+    <string name="minutes">Số phút:</string>
+    <string name="hours">Số giờ:</string>
 </resources>
